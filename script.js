@@ -65,8 +65,12 @@ function displayResults(results) {
 
   results.forEach((result) => {
     const li = document.createElement("li");
-    li.innerHTML = `${result.name} : ${result.cast}%`;
+    li.innerHTML = `<span class="candidate">${result.name}</span> : <span class="cast">${result.cast}%</span> <span class="voices">(${lisibleNumber(result.voices)} votes)</span>`;
 
     ul.appendChild(li);
   });
+}
+
+function lisibleNumber(voices) {
+  return voices.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ' ");
 }
