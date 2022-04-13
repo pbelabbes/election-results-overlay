@@ -82,7 +82,8 @@ function displayResults(results) {
 
   results.forEach((result) => {
     const li = document.createElement("li");
-    li.innerHTML = `<span class="candidate">${result.name}</span> : <span class="cast">${result.cast}%</span> <span class="voices">(${lisibleNumber(result.voices)} votes)</span>`;
+    const barDiv=`<div class="bar" style="width: ${result.cast}%;"></div><span class="cast">${result.cast}%</span> <span class="voices">(${lisibleNumber(result.voices)} votes)</span>`;
+    li.innerHTML = `<span class="candidate">${result.name}</span><br/>${barDiv}`;
 
     ul.appendChild(li);
   });
