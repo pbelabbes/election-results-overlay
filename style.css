@@ -30,3 +30,12 @@ body {
     font-size: 0.8rem;
 }
 
+#voteCount{
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.voteCount{
+    font-weight: bold;
+    color:var(--pink)
+}
