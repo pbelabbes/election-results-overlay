@@ -4,13 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>Résultat élections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,600;0,700;1,200;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pink: "#f094bd",
+              blue: "#33336b",
+              lightBlue: "hsl(240, 35%, 50%)",
+              white: "rgb(253, 242, 244)",
+              darkPurple: "#634964",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>Résultats élections</title>
   </head>
-  <body>
-    <h1>Résultat élections</h1>
+  <body class="m-1 bg-gradient-to-r from-blue to-darkPurple text-white">
+    <h1 class="text-4xl font-bold my-5 ml-2">Résultats élections</h1>
     <h2 id="voteCount"></h2>
-    <div id="resultats"></div>
+    <div id="resultats" class="font-bold ml-10"></div>
     <script src="./script.js"></script>
   </body>
 </html>
