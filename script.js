@@ -1,9 +1,9 @@
 const url =
-"https://www.resultats-elections.interieur.gouv.fr/presidentielle-2022/FE.html";
+  "https://www.resultats-elections.interieur.gouv.fr/presidentielle-2022/FE.html";
 
 let timer;
 function fetchPage() {
-  fetch(url)
+  fetch(url, { cache: "no-store" })
     .then((response) => {
       return response.arrayBuffer();
     })
@@ -39,7 +39,7 @@ function processVoteCountData(doc) {
 
   const voteCountHTML = doc.querySelector(`${voteCountSelector}`);
   if (voteCountHTML != null) {
-    console.log('voteCountHTML :', voteCountHTML);
+    console.log("voteCountHTML :", voteCountHTML);
     const voteCount = parseVoteCount(voteCountHTML);
     displayVoteCount(voteCount);
   }
@@ -82,7 +82,13 @@ function displayResults(results) {
 
   results.forEach((result) => {
     const li = document.createElement("li");
-    const barDiv=`<div class="bar" style="width: ${result.cast}%;"></div><span class="cast">${result.cast}%</span> <span class="voices">(${lisibleNumber(result.voices)} votes)</span>`;
+    const barDiv = `<div class="bar" style="width: ${
+      result.cast
+    }%;"></div><span class="cast">${
+      result.cast
+    }%</span> <span class="voices">(${lisibleNumber(
+      result.voices
+    )} votes)</span>`;
     li.innerHTML = `<span class="candidate">${result.name}</span><br/>${barDiv}`;
 
     ul.appendChild(li);
@@ -90,13 +96,13 @@ function displayResults(results) {
 }
 
 function parseVoteCount(voteCountHTML) {
-  const [voteCountInfoHTML] = voteCountHTML.children
+  const [voteCountInfoHTML] = voteCountHTML.children;
   const voteCountInfo = voteCountInfoHTML.innerHTML;
-  console.log('voteCountInfo :', voteCountInfo);
+  console.log("voteCountInfo :", voteCountInfo);
 
   let splittedVoteCountInfo = voteCountInfo.split("%");
   const voteCountText = splittedVoteCountInfo[0].split(" ").at(-1);
-  console.log('voteCountText :', voteCountText);
+  console.log("voteCountText :", voteCountText);
   return parseNumber(voteCountText);
 }
 
@@ -105,10 +111,6 @@ function displayVoteCount(voteCount) {
   voteCountElement.innerHTML = `Résultat partiels : <span class="voteCount">${voteCount}%</span>`;
 }
 
-
-
-
 function lisibleNumber(voices) {
   return voices.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ' ");
 }
-
