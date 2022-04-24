@@ -10,9 +10,10 @@
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-
-    background: linear-gradient(2deg, var(--blue), var(--darkPurple));
-    background: -webkit-linear-gradient(2deg, var(--blue), var(--darkPurple));
+    
+    background: transparent;
+    /* background: linear-gradient(2deg, var(--blue), var(--darkPurple)); */
+    /* background: -webkit-linear-gradient(2deg, var(--blue), var(--darkPurple)); */
 
     color: var(--white);
 }
